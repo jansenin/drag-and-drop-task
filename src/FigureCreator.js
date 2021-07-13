@@ -21,6 +21,6 @@ export function FigureCreator(props) {
 
     const draggable = true;
     return (
-        <Image draggable={draggable} onDragStart={draggable && onDragStart} forwardRef={imageRef}></Image>
+        <Image draggable={draggable} onDragStart={draggable && onDragStart} ref={imageRef}></Image>
     )
 }
