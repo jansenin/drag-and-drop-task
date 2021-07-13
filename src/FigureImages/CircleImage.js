@@ -32,5 +32,7 @@ function CircleImage(props) {
 }
 
 CircleImage.imageType = "CircleImage"
+CircleImage.imageWidth = 100
+CircleImage.imageHeight = 100
 
 export { CircleImage }

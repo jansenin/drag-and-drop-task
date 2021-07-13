@@ -6,16 +6,21 @@ export class ImageDragTypeHelper {
     constructor(typeString) {
         this.isImageType = true
         const arr = typeString.split(",")
-        if (arr.length !== 3 && arr[0] === this.#FIGURE_DRAG_TYPE && isNumber(arr[1]) && isNumber(arr[2])) {
+
+        const isNum = index => isNumber(arr[index])
+
+        if (arr.length !== 5 && arr[0] === this.#FIGURE_DRAG_TYPE && isNum(1) && isNum(2) && isNum(3) && isNum(4)) {
             this.isImageType = false
             return
         }
         this.offsetX = +arr[1]
         this.offsetY = +arr[2]
+        this.width = +arr[3]
+        this.height = +arr[4]
     }
 
-    static createFigureDragType(offsetX, offsetY) {
-        return this.#FIGURE_DRAG_TYPE + "," + offsetX + "," + offsetY
+    static createFigureDragType(offsetX, offsetY, width, height) {
+        return this.#FIGURE_DRAG_TYPE + "," + offsetX + "," + offsetY + "," + width + "," + height
     }
 }
 

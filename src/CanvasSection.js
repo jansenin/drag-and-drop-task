@@ -44,7 +44,9 @@ export function CanvasSection() {
                 const canvasRect = canvasRef.current.getBoundingClientRect();
                 const x = (e.nativeEvent.clientX - canvasRect.left) - imageDragTypeHelper.offsetX
                 const y = (e.nativeEvent.clientY - canvasRect.top) - imageDragTypeHelper.offsetY
-                if (x >= 0 && y >= 0 && x <= canvasRect.width && y <= canvasRect.height)
+                const maxX = canvasRect.width - imageDragTypeHelper.width
+                const maxY = canvasRect.height - imageDragTypeHelper.height
+                if (x >= 0 && y >= 0 && x <= maxX && y <= maxY)
                     e.preventDefault()
                 return
             }

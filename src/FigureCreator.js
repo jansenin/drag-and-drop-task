@@ -4,8 +4,13 @@ import { ImageDragDataHelper, ImageDragTypeHelper } from "./utils/figureDragUtil
 
 export function FigureCreator(props) {
     const imageRef = useRef();
+    const Image = props.image
+
     const onDragStart = (e) => {
-        const dragType = ImageDragTypeHelper.createFigureDragType(e.nativeEvent.offsetX, e.nativeEvent.offsetY)
+        const width = Image.imageWidth
+        const height = Image.imageHeight
+
+        const dragType = ImageDragTypeHelper.createFigureDragType(e.nativeEvent.offsetX, e.nativeEvent.offsetY, width, height)
         const dragData = ImageDragDataHelper.createData(props.image.imageType)
         e.dataTransfer.setData(dragType, dragData)
 
@@ -14,7 +19,6 @@ export function FigureCreator(props) {
         e.dataTransfer.setDragImage(imageRef.current, imageOffsetX, imageOffsetY)
     }
 
-    const Image = props.image
     const draggable = true;
     return (
         <Image draggable={draggable} onDragStart={draggable && onDragStart} forwardRef={imageRef}></Image>

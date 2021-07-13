@@ -31,5 +31,7 @@ function SquareImage(props) {
 }
 
 SquareImage.imageType = "SquareImage"
+SquareImage.imageWidth = 100
+SquareImage.imageHeight = 100
 
 export { SquareImage }
