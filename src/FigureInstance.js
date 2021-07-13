@@ -1,15 +1,18 @@
 import styled from "styled-components";
+import { typeToImage } from "./creationData/imageTypeData"
 
-export function FigureInstance(props) {
-    const Positioner = styled.div`
+const Positioner = styled.div`
         position: absolute;
-        top: ${props.y}
-        left: ${props.x}
+        top: ${props => props.y}px;
+        left: ${props => props.x}px;
     `
 
+export function FigureInstance(props) {
+    const FigureImage = typeToImage[props.imageType]
+
     return (
-        <Positioner>
-            {/*...*/}
+        <Positioner x={props.x} y={props.y}>
+            <FigureImage draggable={props.draggable}></FigureImage>
         </Positioner>
     )
 }

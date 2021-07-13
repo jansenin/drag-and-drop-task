@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-function CircleImage() {
-    const Circle = styled.div`
+const Circle = styled.div`
         width: 100px;
         height: 100px;
         border-radius: 50%;
@@ -9,9 +8,12 @@ function CircleImage() {
         background: blue;
     `
 
+function CircleImage(props) {
     return (
-        <Circle></Circle>
+        <Circle draggable={props.draggable} onDragStart={props.onDragStart} ref={props.forwardRef}></Circle>
     )
 }
+
+CircleImage.imageType = "CircleImage"
 
 export { CircleImage }
