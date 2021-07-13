@@ -1,5 +1,5 @@
 import { initialState } from "../initialState";
-import { CREATE_FIGURE, SELECT_FIGURE } from "../actions/actionTypes";
+import { CREATE_FIGURE, SELECT_FIGURE, DELETE_FIGURE } from "../actions/actionTypes";
 
 export function figures(state = initialState.figures, action) {
     if (action.type === CREATE_FIGURE) {
@@ -17,6 +17,9 @@ export function figures(state = initialState.figures, action) {
             ...restFigures,
             selectedFigureCopy
         ]
+    } else if (action.type === DELETE_FIGURE) {
+        const restFigures = state.filter(figure => figure.id !== action.payload.id)
+        return restFigures
     }
     return state
 }

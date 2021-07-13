@@ -11,7 +11,7 @@ export function FigureCreator(props) {
         const height = Image.imageHeight
 
         const dragType = ImageDragTypeHelper.createFigureDragType(e.nativeEvent.offsetX, e.nativeEvent.offsetY, width, height)
-        const dragData = ImageDragDataHelper.createData(props.image.imageType)
+        const dragData = ImageDragDataHelper.createData(props.image.imageType, false)
         e.dataTransfer.setData(dragType, dragData)
 
         const k = cssAndPhysicalPixelRatio();

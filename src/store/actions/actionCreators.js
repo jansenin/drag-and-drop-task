@@ -16,3 +16,12 @@ export function selectFigure(id, newZIndex) {
         }
     }
 }
+
+export function deleteFigure(id) {
+    return {
+        type: actionTypes.DELETE_FIGURE,
+        payload: {
+            id
+        }
+    }
+}

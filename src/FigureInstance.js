@@ -22,8 +22,8 @@ export function FigureInstance(props) {
     const selectable = true
     return (
         <Positioner $x={props.x} $y={props.y}>
-            <Select selected={props.selected}>
-                <FigureImage draggable={props.draggable} onClick={props.selectable && onClick}></FigureImage>
+            <Select selected={selectable && props.selected}>
+                <FigureImage draggable={props.draggable} onClick={selectable && onClick} onDragStart={props.draggable && props.onDragStart} ref={props.forwardRef}></FigureImage>
             </Select>
         </Positioner>
     )

@@ -34,12 +34,14 @@ export class ImageDragDataHelper {
             this.isImageData = false;
         }
         this.isImageData &= figure.imageType !== undefined
+        this.isImageData &= figure.selected !== undefined
         this.data = figure
     }
 
-    static createData(imageType) {
+    static createData(imageType, selected) {
         return JSON.stringify({
-            imageType
+            imageType,
+            selected
         })
     }
 }
