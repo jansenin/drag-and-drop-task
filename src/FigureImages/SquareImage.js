@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { Select } from "./Select"
+import { useSelector, useDispatch } from "react-redux";
+import { selectFigure } from "../store/actions/actionCreators";
 
 const Square = styled.div`
         width: 100px;
@@ -8,8 +11,22 @@ const Square = styled.div`
     `
 
 function SquareImage(props) {
+    const nextZIndex = useSelector(state => state.nextZIndex)
+    const dispatch = useDispatch()
+
+    const onClick = e => {
+        dispatch(selectFigure(props.id, nextZIndex))
+    }
+
     return (
-        <Square draggable={props.draggable} onDragStart={props.onDragStart} ref={props.forwardRef}></Square>
+        <Select selected={props.selected}>
+            <Square
+                draggable={props.draggable}
+                onDragStart={props.onDragStart}
+                onClick={props.selectable && onClick}
+                ref={props.forwardRef}>
+            </Square>
+        </Select>
     )
 }
 

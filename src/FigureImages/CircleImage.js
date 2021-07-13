@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { Select } from "./Select"
+import { useSelector, useDispatch } from "react-redux";
+import { selectFigure } from "../store/actions/actionCreators";
 
 const Circle = styled.div`
         width: 100px;
@@ -9,8 +12,22 @@ const Circle = styled.div`
     `
 
 function CircleImage(props) {
+    const nextZIndex = useSelector(state => state.nextZIndex)
+    const dispatch = useDispatch()
+
+    const onClick = e => {
+        dispatch(selectFigure(props.id, nextZIndex))
+    }
+
     return (
-        <Circle draggable={props.draggable} onDragStart={props.onDragStart} ref={props.forwardRef}></Circle>
+        <Select selected={props.selected}>
+            <Circle
+                draggable={props.draggable}
+                onDragStart={props.onDragStart}
+                onClick={props.selectable && onClick}
+                ref={props.forwardRef}>
+            </Circle>
+        </Select>
     )
 }
 

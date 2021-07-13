@@ -6,7 +6,7 @@ export class ImageDragTypeHelper {
     constructor(typeString) {
         this.isImageType = true
         const arr = typeString.split(",")
-        if (arr.length != 3 && arr[0] === this.#FIGURE_DRAG_TYPE && isNumber(arr[1]) && isNumber(arr[2])) {
+        if (arr.length !== 3 && arr[0] === this.#FIGURE_DRAG_TYPE && isNumber(arr[1]) && isNumber(arr[2])) {
             this.isImageType = false
             return
         }

@@ -15,6 +15,7 @@ export function CanvasSection() {
     const canvasRef = useRef();
     const nextFigureId = useSelector(state => state.nextFigureId)
     const figures = useSelector(state => state.figures)
+    const selectedFigureId = useSelector(state => state.selectedFigureId)
 
     const onDrop = (e) => {
         for (let type of e.dataTransfer.types) {
@@ -55,7 +56,15 @@ export function CanvasSection() {
     return (
         <Canvas onDrop={onDrop} onDragOver={onDragOver} onDragEnter={onDragEnter} ref={canvasRef}>
             {figures.map(
-                figure => <FigureInstance draggable="false" key={figure.id} x={figure.x} y={figure.y} imageType={figure.imageType}></FigureInstance>
+                figure => <FigureInstance
+                    draggable="false"
+                    key={figure.id}
+                    selected={figure.id === selectedFigureId}
+                    id={figure.id}
+                    x={figure.x}
+                    y={figure.y}
+                    imageType={figure.imageType}>
+                </FigureInstance>
             )}
         </Canvas>
     )

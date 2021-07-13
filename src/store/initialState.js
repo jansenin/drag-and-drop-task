@@ -1,6 +1,8 @@
 export const initialState = {
     figures: [],
-    nextFigureId: 0
+    nextFigureId: 0,
+    nextZIndex: 0,
+    selectedFigureId: null
 }
 
 /*
@@ -12,9 +14,12 @@ export const initialState = {
             imageType: "...",
             x: 100,
             y: 100,
-            id: 1
+            id: 1,
+            zIndex: 0
         }
     ],
-    nextFigureId: 2
+    nextFigureId: 2,
+    nextZIndex: 2,
+    selectedFigureId: 1
 }
 */

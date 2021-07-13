@@ -6,3 +6,13 @@ export function createFigure(payload) {
         payload
     }
 }
+
+export function selectFigure(id, newZIndex) {
+    return {
+        type: actionTypes.SELECT_FIGURE,
+        payload: {
+            id,
+            newZIndex
+        }
+    }
+}
