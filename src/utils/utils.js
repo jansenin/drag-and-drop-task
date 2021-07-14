@@ -9,5 +9,5 @@ export function cssAndPhysicalPixelRatio() {
 }
 
 export function isNumber(n) {
-    return !isNaN(n) && isFinite(n);
+    return !isNaN(n) && isFinite(n) && (typeof (n) === "number");
 }

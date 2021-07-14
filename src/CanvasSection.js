@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useRef } from "react"
-import { createFigure, deleteFigure } from "./store/actions/actionCreators"
+import { createFigure, deleteFigure, selectFigure } from "./store/actions/actionCreators"
 import styled from "styled-components"
 import { FigureInstance } from "./FigureInstance"
 import { ImageDragDataHelper, ImageDragTypeHelper } from "./utils/figureDragUtils"
@@ -33,6 +33,7 @@ export function CanvasSection() {
                     y: (e.nativeEvent.clientY - canvasRect.top) - imageDragTypeHelper.offsetY,
                     id: nextFigureId
                 }))
+                if (figure.selected) dispatch(selectFigure(nextFigureId))
 
                 return
             }

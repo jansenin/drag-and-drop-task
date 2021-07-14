@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { CreationSection } from "./CreationSection";
 import { CanvasSection } from "./CanvasSection";
+import { ImportExportSection } from "./ImportExportSection";
 import { Provider } from "react-redux";
 import { store } from "./store/store"
 
@@ -13,7 +14,7 @@ const AppContainer = styled.div`
 
 const Grid = styled.div`
         display: grid;
-        grid-template-rows: min-content 1fr;
+        grid-template-rows: min-content 1fr min-content;
         grid-template-columns: min-content 1fr;
         border-top: 1px solid black;
         border-left: 1px solid black;
@@ -24,6 +25,13 @@ const GridCell = styled.div`
         border-bottom: 1px solid black;
         border-right: 1px solid black;
     `
+
+const CanvasCell = styled(GridCell)`
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+`
 
 const ColumnHeader = styled(GridCell)`
         padding: 10px;
@@ -41,8 +49,11 @@ export function App() {
                         <CreationSection></CreationSection>
                     </GridCell>
                     <GridCell>
-                        <CanvasSection></CanvasSection>
+                        <ImportExportSection></ImportExportSection>
                     </GridCell>
+                    <CanvasCell>
+                        <CanvasSection></CanvasSection>
+                    </CanvasCell>
                 </Grid>
             </AppContainer>
         </Provider>

@@ -25,3 +25,12 @@ export function deleteFigure(id) {
         }
     }
 }
+
+export function setState(newState) {
+    return {
+        type: actionTypes.SET_STATE,
+        payload: {
+            newState
+        }
+    }
+}

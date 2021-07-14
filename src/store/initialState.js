@@ -1,4 +1,7 @@
-export const initialState = {
+import { AllDataItemName } from "../DataSaver"
+
+let dataFromStorage = localStorage.getItem(AllDataItemName)
+export const initialState = dataFromStorage !== null ? JSON.parse(dataFromStorage) : {
     figures: [],
     nextFigureId: 0,
     nextZIndex: 0,
